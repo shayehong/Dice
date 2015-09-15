@@ -25,14 +25,20 @@ public void setup()
 }
 public void draw()
 {
+	background(255,7,27);
+	int sum = 0;
 	//your code here
-	for (int y = 10; y<385; y+= 55){
-		for(int x = 10; x<385; x+=55){
+	for (int y = 10; y<300; y+= 55){
+		for(int x = 10; x<300; x+=55){
 			Die dice = new Die(x,y); 
 			dice.roll();
 			dice.show();
+			sum = sum + dice.drandom;
+			
 		}
 	}
+	fill(0);
+	text("Total" + sum, 200,350);
 }
 public void mousePressed()
 {
@@ -41,9 +47,9 @@ public void mousePressed()
 class Die //models one single dice cube
 {
 	//variable declarations here
+	int drandom;
 	int myX;
 	int myY;
-	int drandom;
 	Die(int x, int y) //constructor
 	{
 		myX = x;
